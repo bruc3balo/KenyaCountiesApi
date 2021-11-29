@@ -10,8 +10,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -40,27 +38,24 @@ public class KenyaCountiesApplication {
     @Bean
     CommandLineRunner runner() {
         return args -> {
-
-            try {
-                 addCounties();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    addSubCounty();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        addWard();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
+            //            try {
+//                 addCounties();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            } finally {
+//                try {
+//                    addSubCounty();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                } finally {
+//                    try {
+//                        addWard();
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
         };
-
     }
 
     private void addCounties() {
