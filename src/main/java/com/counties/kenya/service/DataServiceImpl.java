@@ -15,7 +15,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public County saveCounty(County county) {
-        return countyRepo.save(county);
+        return countyRepository.save(county);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public SubCounty saveSubCounty(SubCounty subCounty) {
-        return subCountyRepo.save(subCounty);
+        return subCountyRepository.save(subCounty);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public Ward saveWard(Ward ward) {
-        return wardRepo.save(ward);
+        return wardRepository.save(ward);
     }
 
     @Override

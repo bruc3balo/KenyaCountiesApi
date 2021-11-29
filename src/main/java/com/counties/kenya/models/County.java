@@ -1,6 +1,7 @@
 package com.counties.kenya.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.cloud.firestore.annotation.DocumentId;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,8 +15,8 @@ import java.time.LocalDateTime;
 public class County {
    // @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    //@DocumentId
-    private Integer id;
+    @DocumentId
+    private String id;
 
     @Column(name = "name")
     @JsonProperty(value = "name")
@@ -27,27 +28,21 @@ public class County {
 
     @Column(name = "createdAt", updatable = false)
     @JsonProperty(value = "createdAt")
-    private LocalDateTime createdAt;
+    private String createdAt;
 
     public County() {
     }
 
-    public County(String name) {
-        this.name = name;
-    }
 
-    public County(Integer id) {
-        this.id = id;
-    }
 
-    public County(Integer id, String name, boolean deleted, LocalDateTime createdAt) {
+    public County(String id, String name, boolean deleted, String createdAt) {
         this.id = id;
         this.name = name;
         this.deleted = deleted;
         this.createdAt = createdAt;
     }
 
-    public County(Integer id, String name, Boolean deleted) {
+    public County(String id, String name, Boolean deleted) {
         this.id = id;
         this.name = name;
         this.deleted = deleted;

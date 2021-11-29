@@ -41,7 +41,7 @@ public class KenyaCountiesApplication {
     CommandLineRunner runner() {
         return args -> {
 
-            /*try {
+            try {
                  addCounties();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -57,7 +57,7 @@ public class KenyaCountiesApplication {
                         e.printStackTrace();
                     }
                 }
-            }*/
+            }
 
         };
 
@@ -92,7 +92,7 @@ public class KenyaCountiesApplication {
                     try {
                         County county = mapper.readValue(mapper.writeValueAsString(c), County.class);
                         log.info(mapper.writeValueAsString(county));
-                        county.setCreatedAt(LocalDateTime.now());
+                        county.setCreatedAt(LocalDateTime.now().toString());
                         dataService.saveCounty(county);
                     } catch (JsonProcessingException e) {
                         e.printStackTrace();
@@ -136,7 +136,7 @@ public class KenyaCountiesApplication {
                     try {
                         Ward ward = mapper.readValue(mapper.writeValueAsString(c), Ward.class);
                         log.info(mapper.writeValueAsString(ward));
-                        ward.setCreatedAt(LocalDateTime.now());
+                        ward.setCreatedAt(LocalDateTime.now().toString());
                         dataService.saveWard(ward);
                     } catch (JsonProcessingException e) {
                         e.printStackTrace();
@@ -178,7 +178,7 @@ public class KenyaCountiesApplication {
                     try {
                         SubCounty subCounty = mapper.readValue(mapper.writeValueAsString(c), SubCounty.class);
                         log.info(mapper.writeValueAsString(subCounty));
-                        subCounty.setCreatedAt(LocalDateTime.now());
+                        subCounty.setCreatedAt(LocalDateTime.now().toString());
                         dataService.saveSubCounty(subCounty);
                     } catch (JsonProcessingException e) {
                         e.printStackTrace();

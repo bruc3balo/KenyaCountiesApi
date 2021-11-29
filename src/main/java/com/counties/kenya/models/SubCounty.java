@@ -12,12 +12,13 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "sub_county")
+
 public class SubCounty {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @DocumentId
-    private Integer id;
+    private String id;
 
     @Column(name = "name")
     @JsonProperty(value = "name")
@@ -29,7 +30,7 @@ public class SubCounty {
 
     @Column(name = "createdAt", updatable = false)
     @JsonProperty(value = "createdAt")
-    private LocalDateTime createdAt;
+    private String createdAt;
 
     @Column(name = "countyId")
     @JsonProperty(value = "countyId")
@@ -44,14 +45,14 @@ public class SubCounty {
         this.countyId = countyId;
     }
 
-    public SubCounty(String name, boolean deleted, LocalDateTime createdAt, Integer countyId) {
+    public SubCounty(String name, boolean deleted, String createdAt, Integer countyId) {
         this.name = name;
         this.deleted = deleted;
         this.createdAt = createdAt;
         this.countyId = countyId;
     }
 
-    public SubCounty(Integer id, Integer countyId, String name, Boolean deleted) {
+    public SubCounty(String id, Integer countyId, String name, Boolean deleted) {
         this.name = name;
         this.deleted = deleted;
         this.id = id;
