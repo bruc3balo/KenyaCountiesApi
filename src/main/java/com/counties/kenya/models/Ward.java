@@ -5,35 +5,37 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-//@Entity
-//@Table(name = "ward")
+@Entity
+@Table(name = "ward")
 public class Ward {
 
-    //    @Id
-    //    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //@Column(name = "name")
-    @JsonProperty(value = "is_deleted")
+    @Column(name = "name")
+    @JsonProperty(value = "name")
     private String name;
 
-    //@Column(name = "is_deleted")
-    @JsonProperty(value = "is_deleted")
+    @Column(name = "deleted")
+    @JsonProperty(value = "deleted")
     private Boolean deleted;
 
-    //@Column(name = "created_at", updatable = false)
-    @JsonProperty(value = "created_at")
+    @Column(name = "createdAt", updatable = false)
+    @JsonProperty(value = "createdAt")
     private LocalDateTime createdAt;
 
-   //@Column(name = "sub_county_id")
-    @JsonProperty(value = "sub_county_id")
+    @Column(name = "subCountyId")
+    @JsonProperty(value = "subCountyId")
     private Integer subCountyId;
 
     public Ward() {
+
     }
 
     public Ward(String name, boolean deleted, LocalDateTime createdAt, Integer subCountyId) {

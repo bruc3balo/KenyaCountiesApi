@@ -5,33 +5,34 @@ import com.google.cloud.firestore.annotation.DocumentId;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
-/*@Entity
-@Table(name = "sub_county")*/
+@Entity
+@Table(name = "sub_county")
 public class SubCounty {
 
-  /*  @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)*/
+    @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @DocumentId
     private Integer id;
 
-    //@Column(name = "name")
+    @Column(name = "name")
     @JsonProperty(value = "name")
     private String name;
 
-    //@Column(name = "is_deleted")
-    @JsonProperty(value = "is_deleted")
+    @Column(name = "deleted")
+    @JsonProperty(value = "deleted")
     private Boolean deleted;
 
-   // @Column(name = "created_at", updatable = false)
-    @JsonProperty(value = "created_at")
+    @Column(name = "createdAt", updatable = false)
+    @JsonProperty(value = "createdAt")
     private LocalDateTime createdAt;
 
-    //@Column(name = "county_id")
-    @JsonProperty(value = "county_id")
+    @Column(name = "countyId")
+    @JsonProperty(value = "countyId")
     private Integer countyId;
 
     public SubCounty() {

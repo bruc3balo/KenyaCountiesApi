@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -45,7 +46,7 @@ public class Controller {
                 return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
             }
 
-            List<County> countyTypeList = new ArrayList<>(dataService.getCounties());
+            List<County> countyTypeList = dataService.getCounties(PageRequest.of(0,Integer.MAX_VALUE)).getContent();
 
             MyApiResponse response = new MyApiResponse(countyTypeList.isEmpty() ? "No counties found" : "List of counties found (" + countyTypeList.size() + ")", countyTypeList);
             return new ResponseEntity<>(response, countyTypeList.isEmpty() ? HttpStatus.NOT_FOUND : HttpStatus.OK);
