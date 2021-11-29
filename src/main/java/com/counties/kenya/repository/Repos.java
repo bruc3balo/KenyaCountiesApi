@@ -11,27 +11,9 @@ public class Repos {
     public static SubCountyRepository subCountyRepository;
     public static WardRepository wardRepository;
 
-    public static CountyRepo countyRepo;
-    public static SubCountyRepo subCountyRepo;
-    public static WardRepo wardRepo;
 
     //service
     public static DataService dataService;
-
-    @Autowired
-    public void setCountyRepo(CountyRepo countyRepo) {
-        Repos.countyRepo = countyRepo;
-    }
-
-    @Autowired
-    public void setSubCountyRepo(SubCountyRepo subCountyRepo) {
-        Repos.subCountyRepo = subCountyRepo;
-    }
-
-    @Autowired
-    public void setWardRepo(WardRepo wardRepo) {
-        Repos.wardRepo = wardRepo;
-    }
 
     @Autowired
     public void setDataService(DataService dataService) {

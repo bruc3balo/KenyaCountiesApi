@@ -3,21 +3,25 @@ package com.counties.kenya.service;
 import com.counties.kenya.models.County;
 import com.counties.kenya.models.SubCounty;
 import com.counties.kenya.models.Ward;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DataService {
     County saveCounty(County county);
-    County updateCounty(County county);
-    Page<County> getCounties(PageRequest pageRequest);
+    List<County> getCounties(String name,String id,Boolean deleted);
+
+
 
     SubCounty saveSubCounty(SubCounty subCounty);
-    SubCounty updateSubCounty(SubCounty subCounty);
-    Page<SubCounty> getSubCounties(PageRequest pageRequest);
+    List<SubCounty> getSubCounties(String name,String id,String countryId,Boolean deleted);
+
+
 
     Ward saveWard(Ward ward);
-    Ward updateWard(Ward ward);
-    Page<Ward> getWard(PageRequest pageRequest);
+    List<Ward> getWard(String name,String id,String subCountryId,Boolean deleted);
+
+
+
 }
